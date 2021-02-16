@@ -1,0 +1,117 @@
+package server;
+
+import java.net.MalformedURLException;
+import java.rmi.Naming;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
+
+import standard.FlappyClientInterface;
+
+public class FlappyServer extends UnicastRemoteObject implements FlappyServerInterface{
+	
+	
+	private boolean gameStarted =false;
+	private boolean gameEnded = false;
+	private int deadCounter = 0;
+	private int readyCounter = 0;
+	ArrayList<FlappyClientInterface> allClients = new ArrayList<>();
+	
+	protected FlappyServer() throws RemoteException {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public static void main(String[] args) {
+		try {
+			LocateRegistry.createRegistry(Registry.REGISTRY_PORT);
+			Naming.rebind("flappybird", new FlappyServer());
+		} catch (RemoteException | MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	//Gibt den Indexwert zurück
+	public int login(FlappyClientInterface clientInterface) throws RemoteException {
+
+		newBirdLogin(allClients.size());
+		allClients.add(clientInterface);
+		return(allClients.indexOf(clientInterface));
+		
+	}
+	
+	public void newBirdLogin(int index){
+		for(FlappyClientInterface client : allClients) {
+			try {
+			
+					client.registerNewBird(index);
+			
+			} catch (RemoteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+
+	@Override
+	public double[] getPosExt(int remoteIndex) throws RemoteException {
+		return allClients.get(remoteIndex).getPos();
+	}
+	
+	public void birdReady() {
+		readyCounter++;
+		if(readyCounter%allClients.size()==0) {
+			allBirdsReady();
+			readyCounter=0;
+		}
+	}
+	
+	private void allBirdsReady() {
+		for(FlappyClientInterface client : allClients) {
+			try {
+			
+					client.setGameStarted(true);
+					client.setBirdDead(false);
+					client.setMainMenu(false);
+					
+			
+			} catch (RemoteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+	}
+
+	public void birdDied() {
+		deadCounter++;
+		if(deadCounter%allClients.size()==0) {
+			allBirdsDead();
+			deadCounter=0;
+		}
+	}
+
+	private void allBirdsDead() {
+		for(FlappyClientInterface client : allClients) {
+			try {
+			
+					client.setGameStarted(false);
+					client.setMainMenu(true);
+					client.initRender();
+					//Datenbank Highscore
+
+					
+			
+			} catch (RemoteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+	}
+
+}

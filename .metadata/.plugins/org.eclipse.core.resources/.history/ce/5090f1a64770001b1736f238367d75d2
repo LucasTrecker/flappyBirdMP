@@ -1,0 +1,59 @@
+package server;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import javafx.application.Application;
+import standard.FlappyBird;
+import standard.PlayerInput;
+
+public class ServerInput extends JFrame{
+	JTextField inputServer = new JTextField(null, 15);
+	JButton submit = new JButton("Submit");
+	
+	//Zuerst Eingabefenster, nach sumbit die App
+		public static void main(String[] args) {
+			new PlayerInput().init();
+		}
+		
+		public void init() {
+			setSize(300, 150);
+			setTitle("ServerInput");
+
+			//panel1.setLayout(new BoxLayout(panel1, BoxLayout.X_AXIS));
+			
+			JPanel panel1 = new JPanel();
+			panel1.add(new JLabel("Servername: "));
+			panel1.add(inputServer);
+			//panel2.setLayout(new BoxLayout(panel2, BoxLayout.X_AXIS));
+			submit.addActionListener(new ActionListener() { 
+				  public void actionPerformed(ActionEvent e) { 
+					 
+					  FlappyServer.main(new String[] {inputServer.getText(),inputServer.getText()});
+					  } 
+					} );
+			
+			JPanel containerPanel = new JPanel();
+			containerPanel.add(panel1);
+			containerPanel.add(submit);
+			containerPanel.setLayout(new BoxLayout(containerPanel, BoxLayout.Y_AXIS));
+			add(containerPanel);
+			setVisible(true);
+			pack();
+		}
+		
+		
+
+		public JTextField getInputName() {
+			return inputServer;
+		}
+
+}

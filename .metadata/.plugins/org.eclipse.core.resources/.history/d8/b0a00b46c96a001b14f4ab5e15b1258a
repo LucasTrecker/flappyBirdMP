@@ -1,0 +1,14 @@
+package server;
+
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+
+import standard.FlappyClientInterface;
+
+public interface FlappyServerInterface extends Remote{
+	public int login(FlappyClientInterface clientInterface) throws RemoteException;
+
+	public double[] getPosExt(int remoteIndex) throws RemoteException;
+
+	public int getExistingBirdNumber(int remoteIndex) throws RemoteException;
+}

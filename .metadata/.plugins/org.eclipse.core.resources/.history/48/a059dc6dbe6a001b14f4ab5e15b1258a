@@ -1,0 +1,61 @@
+package server;
+
+import java.net.MalformedURLException;
+import java.rmi.Naming;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
+
+import standard.FlappyClientInterface;
+
+public class FlappyServer extends UnicastRemoteObject implements FlappyServerInterface{
+	
+	
+	
+	ArrayList<FlappyClientInterface> allClients = new ArrayList<>();
+	
+	protected FlappyServer() throws RemoteException {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public static void main(String[] args) {
+		try {
+			LocateRegistry.createRegistry(Registry.REGISTRY_PORT);
+			Naming.rebind("flappybird", new FlappyServer());
+		} catch (RemoteException | MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	//Gibt den Indexwert zurück
+	public int login(FlappyClientInterface clientInterface) throws RemoteException {
+
+		newBirdLogin(allClients.indexOf(clientInterface));
+		allClients.add(clientInterface);
+		return(allClients.indexOf(clientInterface));
+		
+	}
+	
+	public void newBirdLogin(int index, FlappyClientInterface clientInterface){
+		for(FlappyClientInterface client : allClients) {
+			try {
+				if(!client.equals(clientInterface)) {
+					client.registerNewBird(index);
+				}
+			} catch (RemoteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+
+	@Override
+	public double[] getPosExt(int remoteIndex) throws RemoteException {
+		return allClients.get(remoteIndex).getPos();
+	}
+}

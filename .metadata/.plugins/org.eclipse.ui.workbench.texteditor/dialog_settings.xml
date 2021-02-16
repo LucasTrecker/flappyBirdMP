@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<item key="selection" value="checkClick"/>
+		<list key="findhistory">
+			<item value="checkclick"/>
+			<item value="getName"/>
+			<item value="highscore"/>
+			<item value="s"/>
+			<item value="System.out"/>
+			<item value="system"/>
+			<item value="input"/>
+			<item value="select"/>
+			<item value="database"/>
+			<item value="pane"/>
+			<item value="ctx"/>
+			<item value="canvas"/>
+			<item value="assets"/>
+			<item value="updatespriteanimation"/>
+			<item value="setInputHandlers"/>
+		</list>
+		<list key="replacehistory">
+			<item value="ObjectSizes.FLOOR.height()"/>
+			<item value="ObjectSizes.TITLE.length()"/>
+			<item value="ObjectSizes.TITLE.height()"/>
+			<item value="ObjectSizes.SCORE.height()"/>
+			<item value="ObjectSizes.SCORE.length()"/>
+			<item value="ObjectSizes.RESTART.length()"/>
+			<item value="ObjectSizes.RESTART.height()"/>
+			<item value="ObjectSizes.PIPE.height()"/>
+			<item value="ObjectSizes.PIPE.length()"/>
+			<item value="ObjectSizes.PIPE.width()"/>
+			<item value="ObjectSizes.GAMEOVER.width()"/>
+			<item value="ObjectSizes.GAMEOVER.height()"/>
+			<item value="ObjectSizes.FLOOR.length()"/>
+			<item value="ObjectSizes.BIRD.length()"/>
+			<item value="ObjectSizes.BIRD.height()"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="1423"/>
+		<item key="DIALOG_Y_ORIGIN" value="191"/>
+		<item key="DIALOG_WIDTH" value="284"/>
+		<item key="DIALOG_HEIGHT" value="385"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+</section>

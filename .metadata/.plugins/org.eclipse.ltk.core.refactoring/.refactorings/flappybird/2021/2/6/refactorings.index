@@ -1,0 +1,16 @@
+1612806661930	Delete element
+1612809608554	Rename package 'GameObjets'
+1612861362175	Rename method 'updateSprite'
+1612861968746	Rename field 'serverAction'
+1612869665286	Rename method 'getExistingBirds'
+1612869679463	Rename method 'getExistingBirds'
+1612913568818	Rename method 'renderBirdAfterDeath'
+1612913582411	Rename method 'renderBirdAfterDeath'
+1612998778159	Rename method 'getAllScores'
+1613031959123	Delete element
+1613065155113	Move compilation unit
+1613080933617	Rename method 'initFlappyDb'
+1613086734914	Rename type 'BirdImages'
+1613134244575	Rename field 'actualAnimation'
+1613134476742	Rename type 'PlayerName'
+1613139274385	Rename type 'PlayerNameInput'

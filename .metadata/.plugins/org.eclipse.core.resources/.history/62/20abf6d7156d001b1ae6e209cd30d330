@@ -1,0 +1,36 @@
+package gameObjects;
+
+import javafx.scene.canvas.GraphicsContext;
+import standard.FlappyBird;
+
+public class BirdExt extends Bird{
+	int remoteIndex;
+	
+	public BirdExt(FlappyBird flappyBird,double screenWidth, double screenHeight, GraphicsContext ctx, int remoteIndex) {
+		super(flappyBird,screenWidth, screenHeight, ctx);
+		this.remoteIndex=remoteIndex;
+		// TODO Auto-generated constructor stub
+	}
+	
+	@Override
+	public void update(long now) {
+		if (flappyBird.isGameStarted()) {
+            if (now - prevTime > 90000000) {
+                updateSpriteAnimation();
+                prevTime = now;
+            }
+		}
+		double[] tmp =  flappyBird.getPosExt(remoteIndex);
+		this.sprite.setPos(tmp[0], tmp[1]);
+	}
+	
+	public void render() {
+		sprite.render();
+	}
+	
+//	@Override
+//	public void jumpHandler() {
+//        sprite.setVelY(-16);
+//    }
+
+}

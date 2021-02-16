@@ -1,0 +1,22 @@
+package server;
+
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+
+import standard.FlappyClientInterface;
+import java.util.HashMap;
+
+public interface FlappyServerInterface extends Remote{
+	public int login(FlappyClientInterface clientInterface) throws RemoteException;
+
+	public double[] getPosExt(int remoteIndex) throws RemoteException;
+
+
+	public void birdReady() throws RemoteException;
+	
+	public void birdDied() throws RemoteException;
+	
+	public int getServerRandomForPipes() throws RemoteException;
+
+	public HashMap<String, Integer> getTopThree() throws RemoteException;
+}

@@ -1,0 +1,50 @@
+package gameObjects;
+
+import javax.swing.BoxLayout;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import gameObjects.GameObject.ObjectSizes;
+import javafx.geometry.Insets;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.text.TextFlow;
+import standard.FlappyBird;
+import standard.Sprite;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+
+public class PlayerInput extends JFrame {
+
+	JTextField inputName = new JTextField(null,15);
+	JTextField inputServer = new JTextField(null,15);
+	
+
+	public void initName() {
+		setSize(300, 150);
+		setTitle("PlayerInput");
+		JPanel panel1 = new JPanel();
+		panel1.add(new JLabel("Spielername: "));
+		panel1.add(inputName);
+		//panel1.setLayout(new BoxLayout(panel1, BoxLayout.Y_AXIS));
+		
+		JPanel panel2 = new JPanel();
+		panel2.add(new JLabel("Servername: "));
+		panel2.add(inputServer);
+		panel2.setLayout(new BoxLayout(panel2, BoxLayout.Y_AXIS));
+		
+		add(panel1);
+		add(panel2);
+		setVisible(true);
+		pack();
+	}
+	
+	public JTextField getInputName() {
+		return inputName;
+	}
+
+}

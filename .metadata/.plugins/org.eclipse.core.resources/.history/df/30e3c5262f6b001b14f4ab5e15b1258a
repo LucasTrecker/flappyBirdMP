@@ -1,0 +1,20 @@
+package standard;
+
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+
+public interface FlappyClientInterface extends Remote{
+
+	void registerNewBird(int remoteIndex) throws RemoteException;
+
+	double[] getPos() throws RemoteException;
+	void setBirdDead(boolean dead) throws RemoteException;
+
+	void setGameStarted(boolean b) throws RemoteException;
+	
+	void setMainMenu(boolean b) throws RemoteException;
+
+	void initRender() throws RemoteException;
+
+	void renderBirdAfterDeath() throws RemoteException;
+}

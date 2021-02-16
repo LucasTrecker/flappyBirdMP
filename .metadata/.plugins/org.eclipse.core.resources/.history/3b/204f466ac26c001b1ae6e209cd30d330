@@ -1,0 +1,66 @@
+package gameObjects;
+
+public interface GameObject {
+    //koštruktor - prerender
+    public void update(long now);
+    public void render();
+    
+    public enum ObjectSizes{
+    	BACKGROUND(288,512),
+    	BIRD(56, 40),
+    	PIPE(62,2000),
+    	FLOOR(336,112),
+    	GAMEOVER(205,55),
+    	RESTART(134,47),
+    	SCORE(108,143),
+    	TITLE(178,48);
+    	
+    	private final double length;
+    	private final double height;
+    	
+		ObjectSizes(double length, double height) {
+			this.length=length;
+			this.height=height;
+		}
+		
+		public double length() {
+			return length;
+		}
+		
+		public double height() {
+			return height;
+		}
+    }
+    
+    public enum ImageLink{
+    	IMGLINK("/images/");
+    	
+    	private final String imglink;
+    	
+    	ImageLink(String imglink){
+    		this.imglink=imglink;
+    	}
+    	
+    	
+    	public String imglink() {
+    		return imglink;
+    	}
+    }
+    
+    public enum BirdAnimations{
+    	BIRD1(new String[] {"bird1.png","bird2.png","bird3.png"});
+    	
+    	private final String[] birdanimation;
+    	
+    	BirdAnimations(String[] birdImages){
+    		this.birdanimation=birdImages;
+    	}
+    	
+    	
+    	public String imglink() {
+    		return imglink;
+    	}
+    }
+}
+
+//Alles auf Enum umstellen

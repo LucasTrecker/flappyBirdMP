@@ -1,0 +1,61 @@
+package gameObjects;
+
+import gameObjects.GameObject.ObjectSizes;
+import javafx.geometry.Insets;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.text.TextFlow;
+import standard.FlappyBird;
+import standard.Sprite;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+
+public class PlayerNameInput implements GameObject {
+	private TextField nameInputField;
+	private FlappyBird flappyBird;
+	private Sprite sprite;
+	private int screenWidth;
+    private int screenHeight;
+    private int posX;
+    private int posY;
+
+	public PlayerNameInput(FlappyBird flappyBird, double screenWidth, double screenHeight, Pane pane) {
+		this.flappyBird=flappyBird;
+    	this.screenWidth = (int) screenWidth;
+    	this.screenHeight = (int) screenHeight;
+
+//        sprite.setVel(0, 0);
+//        sprite.setCtx(ctx);
+        nameInputField = new TextField();
+        HBox hbox = new HBox();
+        hbox.setVisible(true);
+
+        hbox.setSpacing(screenWidth/2);
+
+
+ 
+        pane.getChildren().add(hbox);
+        
+//        posX = (int) screenWidth / 8 - 10;
+//        posY = 60;
+
+	}
+
+	@Override
+	public void update(long now) {
+		
+	}
+
+	@Override
+	public void render() {
+		if(!flappyBird.isMainMenu()) {
+			nameInputField.setDisable(true);
+		}else {
+			nameInputField.setDisable(false);
+		}
+
+	}
+
+}

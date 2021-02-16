@@ -1,0 +1,12 @@
+package standard;
+
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+
+public interface FlappyClientInterface extends Remote{
+
+	void registerNewBird(int remoteIndex) throws RemoteException;
+
+	double[] getPos() throws RemoteException;
+
+}

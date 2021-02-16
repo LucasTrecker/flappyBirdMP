@@ -1,0 +1,55 @@
+package standard;
+
+import java.net.MalformedURLException;
+import java.rmi.Naming;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+
+import server.FlappyServerInterface;
+
+public class ServerInteraction implements FlappyClientInterface{
+	FlappyServerInterface serverInterface;
+	FlappyBird flappybird;
+	
+	public ServerInteraction(FlappyBird flappybird) {
+		try {
+			this.flappybird = flappybird;
+			this.serverInterface = (FlappyServerInterface) Naming.lookup("//localhost/flappybird");
+			serverInterface.login(this);
+		} catch (MalformedURLException | RemoteException | NotBoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+
+	@Override
+	public void registerNewBird(int index) throws RemoteException {
+		flappybird.registerNewBird(index);
+		
+	}
+	
+	public int login() {
+		try {
+			return serverInterface.login(this);
+		} catch (RemoteException e) {
+			return 0;
+		}
+	}
+
+
+	public double[] getPosExt(int remoteIndex) {
+		try {
+			return serverInterface.getPosExt(remoteIndex);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+
+	@Override
+	public double[] getPos() throws RemoteException {
+		return flappybird.getPos();
+	}
+}

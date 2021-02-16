@@ -1,0 +1,17 @@
+package gameObjects;
+
+public class Highscore implements GameObject {
+
+	@Override
+	public void update(long now) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void render() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

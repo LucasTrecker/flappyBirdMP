@@ -1,0 +1,56 @@
+package gameObjects;
+
+import gameObjects.GameObject.ImageLink;
+import gameObjects.GameObject.ObjectSizes;
+import javafx.scene.canvas.GraphicsContext;
+import standard.Asset;
+import standard.FlappyBird;
+import standard.Sprite;
+
+public class Highscoreboard implements GameObject {
+	
+	private FlappyBird flappyBird;
+    private Asset asset = new Asset(ImageLink.IMGLINK.imglink()+"highscoreboard.png", ObjectSizes.SCORE.length(), ObjectSizes.SCORE.height());
+    private Sprite sprite;
+    private GraphicsContext ctx;
+    
+    private int screenWidth;
+    private int screenHeight;
+    
+    private int posX = 10;
+    private int posY = 50;
+    private int tablePosX, tablePosY;
+
+    private double prevActivePipePosY = FlappyBird.activePipes[0].getPosY();
+
+    public Highscoreboard(FlappyBird flappyBird, double screenWidth, double screenHeight, GraphicsContext ctx) {
+    	this.flappyBird=flappyBird;
+    	this.screenWidth = (int) screenWidth;
+    	this.screenHeight = (int) screenHeight;
+        sprite = new Sprite(asset);
+        tablePosX = (int) (( screenWidth  - ObjectSizes.HIGHSCOREBOARD.length()) / 2); // /2
+        tablePosY = (int) (( screenHeight - ObjectSizes.HIGHSCOREBOARD.height()) / 2);//ObjectSizes.FLOOR.height() - ObjectSizes.SCORE.height() ) / 2
+        sprite.setPosX(tablePosX);
+        sprite.setPosY(tablePosY);
+        sprite.setVel(0, 0);
+        sprite.setCtx(ctx);
+
+        posX = (int) screenWidth / 8 - 10;
+        posY = 60;
+
+        this.ctx = ctx;
+    }
+	
+	@Override
+	public void update(long now) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void render() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

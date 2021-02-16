@@ -1,0 +1,34 @@
+package standard;
+
+public interface GameObject {
+    //koštruktor - prerender
+    public void update(long now);
+    public void render();
+    
+    public enum ObjectsSizes{
+    	BACKGROUND(288,512),
+    	BIRD(90, 64),
+    	PIPE(62,2000),
+    	FLOOR(336,112),
+    	GAMEOVER(205,55),
+    	RESTART(134,47),
+    	SCORE(108,143),
+    	TITLE(178,48);
+    	
+    	private final double length;
+    	private final double height;
+    	
+		ObjectsSizes(double length, double height) {
+			this.length=length;
+			this.height=height;
+		}
+		
+		private double length() {
+			return length;
+		}
+		
+		private double height() {
+			return height;
+		}
+    }
+}

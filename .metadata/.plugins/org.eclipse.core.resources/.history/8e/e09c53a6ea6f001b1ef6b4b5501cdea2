@@ -1,0 +1,62 @@
+package gameObjects;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import gameObjects.GameObject.ObjectSizes;
+import javafx.geometry.Insets;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.text.TextFlow;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+
+public class PlayerInput extends JFrame {
+
+	JTextField inputName = new JTextField(null, 15);
+	JTextField inputServer = new JTextField(null, 15);
+	JButton submit = new JButton("Submit");
+
+	public void initName() {
+		setSize(300, 150);
+		setTitle("PlayerInput");
+		JPanel panel1 = new JPanel();
+		panel1.add(new JLabel("Spielername: "));
+		panel1.add(inputName);
+		//panel1.setLayout(new BoxLayout(panel1, BoxLayout.X_AXIS));
+		
+		JPanel panel2 = new JPanel();
+		panel2.add(new JLabel("Servername: "));
+		panel2.add(inputServer);
+		//panel2.setLayout(new BoxLayout(panel2, BoxLayout.X_AXIS));
+		
+		submit.addActionListener(new ActionListener() { 
+			  public void actionPerformed(ActionEvent e) { 
+				    
+				  } 
+				} );
+		
+		JPanel containerPanel = new JPanel();
+		containerPanel.add(panel1);
+		containerPanel.add(panel2);
+		containerPanel.add();
+		containerPanel.setLayout(new BoxLayout(containerPanel, BoxLayout.Y_AXIS));
+		add(containerPanel);
+		setVisible(true);
+		pack();
+	}
+
+	public JTextField getInputName() {
+		return inputName;
+	}
+
+}

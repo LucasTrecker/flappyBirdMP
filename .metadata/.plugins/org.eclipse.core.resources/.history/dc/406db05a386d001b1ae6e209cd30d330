@@ -1,0 +1,45 @@
+package gameObjects;
+
+import gameObjects.GameObject.ObjectSizes;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.TextField;
+import javafx.scene.text.TextFlow;
+import standard.FlappyBird;
+import standard.Sprite;
+
+public class PlayerNameInput implements GameObject {
+	private TextField nameInputField = new TextField();
+	private FlappyBird flappyBird;
+	private Sprite sprite;
+	private GraphicsContext ctx;
+	private int screenWidth;
+    private int screenHeight;
+    private int posX;
+    private int posY;
+
+	public PlayerNameInput(FlappyBird flappyBird, double screenWidth, double screenHeight, GraphicsContext ctx) {
+		this.flappyBird=flappyBird;
+    	this.screenWidth = (int) screenWidth;
+    	this.screenHeight = (int) screenHeight;
+
+        sprite.setVel(0, 0);
+        sprite.setCtx(ctx);
+
+        posX = (int) screenWidth / 8 - 10;
+        posY = 60;
+
+        this.ctx = ctx;
+	}
+
+	@Override
+	public void update(long now) {
+
+	}
+
+	@Override
+	public void render() {
+		ctx.
+
+	}
+
+}
